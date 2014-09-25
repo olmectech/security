@@ -1,0 +1,14 @@
+# == Class: registry
+#
+# This class exists to prevent `include registry` from blowing up.
+#
+class registry {
+  registry_key { 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa\LimitBlankPasswordUse':
+    ensure => present,
+}
+  registry_value { 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa\LimitBlankPasswordUse':
+
+    ensure  => present,
+    data   => "2",
+}
+}
